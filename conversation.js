@@ -82,7 +82,7 @@ function getConversationId(uid){
     })
 }
 
-//获取某个会话的信息
+//获取某个会话的所有聊天信息
 function getConverChatInfo(convId){
     return new Promise(async (resolve,reject)=>{
         try {
@@ -101,22 +101,11 @@ function getConverChatInfo(convId){
     })
 }
 
-function recordingChat(senderId,content,contentType,convId){
-    return new Promise(async (resolve,reject)=>{
-        try {
-            await ChatInfo.create({
-                senderId,
-                content,
-                contentType,
-                convId
-            })
-            resolve()
-        } catch (error) {
-            rejcet(error)
-        }
-    })
+module.exports={
+    startConversation,
+    getConversationId,
+    getConverChatInfo,
 }
-
 
 
 
